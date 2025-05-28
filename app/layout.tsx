@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
-import {IBM_Plex_Sans} from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
+import { Variable } from "lucide-react";
 
 const IBMPlex = IBM_Plex_Sans({
   variable: "--font-ibm-plex",
@@ -20,12 +29,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${cn} ${IBMPlex.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider appearance={
+      {variables: {colorPrimary: '#6342a9'}}
+    }>
+      <html lang="en">
+        <body
+          className={cn("font-IBMPlex antialiased", IBMPlex.variable)}>
+          <header className="flex justify-end items-center p-4 gap-4 h-16">
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </header>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
