@@ -30,20 +30,12 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={
-      {variables: {colorPrimary: '#6342a9'}}
+      {variables: {colorPrimary: '#634cf5'}}
     }>
       <html lang="en">
         <body
           className={cn("font-IBMPlex antialiased", IBMPlex.variable)}>
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
-            <SignedOut>
-              <SignInButton />
-              <SignUpButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header>
+          
           {children}
         </body>
       </html>
