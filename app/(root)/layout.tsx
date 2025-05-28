@@ -1,4 +1,5 @@
 
+import MobileNav from '@/components/shared/MobileNav'
 import Sidebar from '@/components/shared/Sidebar'
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 import React from 'react'
@@ -17,6 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     </header>
     <main className='root'>
         <Sidebar />
+        <MobileNav/>
         <div className='root-container'>
           <div className="wrapper">
             {children}
