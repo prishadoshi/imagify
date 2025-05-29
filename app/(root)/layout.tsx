@@ -6,16 +6,6 @@ import React from 'react'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
-    <header className="flex justify-end items-center p-4 gap-4 h-16">
-      <SignedOut>
-        <SignInButton />
-        <SignUpButton />
-      </SignedOut>
-      <SignedIn>
-        <UserButton/>
-      </SignedIn>
-    </header>
     <main className='root'>
         <Sidebar />
         <MobileNav/>
@@ -24,7 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {children}
           </div>
         </div>
-      </main></>
+    </main>
   )
 }
 
